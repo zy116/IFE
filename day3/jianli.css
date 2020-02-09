@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+    text-shadow: 2px 1px 1px;
+}
+
+ul {
+    list-style: none;
+}
+
+div {
+    background-color: pink;
+    height: 500px;
+    width: 400px;
+    margin: 50px auto;
+}
+
+.num {
+    color: #FF0000;
+    font-family: "arial black";
+    font-size:20px;
+}
+
+#name {
+    font-weight: 800;
+    text-indent:10px;
+    background-color: yellow;
+    line-height: 30px;
+}
+
+a{
+    text-decoration: none;
+}
+

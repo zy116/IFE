@@ -1,0 +1,61 @@
+h1 {
+    text-align: center;
+    text-shadow: 2px 1px 1px;
+}
+
+body {
+    background: url(../background.jpg);
+    background-position: 0 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    /* list-style-image: url(../img/bg.png); */
+    /* list-style-type: square; */
+}
+
+div {
+    background-color: pink;
+    padding: 10px;
+    height: 500px;
+    width: 400px;
+    margin: 50px auto;
+    border: 1px solid red;
+    border-bottom: 1px solid blue;
+}
+
+.num {
+    color: #ff0000;
+    font-family: "arial black";
+    font-size: 20px;
+}
+
+#name {
+    font-weight: 800;
+    text-indent: 10px;
+    background-color: yellow;
+    line-height: 30px;
+}
+
+a {
+    text-decoration: none;
+    background-color: #ff0000;
+}
+
+a:link {
+    color: #ff0000;
+} /* 未被访问的链接 */
+a:visited {
+    color: #00ff00;
+} /* 已被访问的链接 */
+a:hover {
+    color: #ff00ff;
+} /* 鼠标指针移动到链接上 */
+a:active {
+    color: #0000ff;
+} /* 正在被点击的链接 */

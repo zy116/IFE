@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九九乘法表</title>
+</head>
+<body>
+<!--这是3的游戏-->
+<!--<script>-->
+<!--    for (var i=1;i<=100;i++){-->
+<!--        if(i%3==0||i.toString().includes("3")){-->
+<!--            console.log("PA");-->
+<!--        }else {-->
+<!--            console.log(i);-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+
+<!--这是用table写九九乘法表-->
+<script>
+    document.write("<table border='1'>");
+    for (var i = 1; i <= 9; i++) {
+        document.write("<tr>");
+        for (var j = 1; j <= i; j++) {
+            document.write("<td>");
+            document.write(j + "*" + i + "=" + i * j + " ");
+            document.write("</td>");
+            if (i == j) {
+                // document.write("<br>")
+            }
+        }
+        document.write("</tr>")
+    }
+    document.write("</table>")
+</script>
+</body>
+</html>

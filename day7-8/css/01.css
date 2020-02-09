@@ -1,0 +1,33 @@
+/* 用float三七分 
+.left,.right{
+    float: left;
+}
+.left{
+    width: 30%;
+}
+.right{
+    width: 70%;
+} */
+
+/* 定位实现三七分
+.wrapper {
+    position: relative;
+
+}
+
+.left,.right{
+    position: absolute;
+}
+.left{
+    width: 30%;
+}
+.right{
+    top: 0;
+    right: 0px;
+    width: 70%;
+} */
+
+
+
+
+ 

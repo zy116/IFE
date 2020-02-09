@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    line-height: 20px;
+    width: 761px;
+    font-size: 20px;
+    padding: 20px;
+    color: white;
+    background-color: gray;
+}
+
+.num,
+.info,
+.skill,
+.edu,
+.pro {
+    width: 800px;
+}
+
+.body .num a {
+    line-height: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.info :first-child,
+.num :first-child,
+.skill :first-child,
+.edu :first-child,
+.pro :first-child {
+    width: 80px;
+    padding-left: 20px;
+    line-height: 80px;
+    background-color: gainsboro;
+    border-bottom: 1px solid white;
+}
+
+.num,
+.info,
+.skill,
+.edu,
+.pro {
+    border-bottom: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+}
+
+div {
+    float: left;
+}
+
+.info :nth-child(2),
+.num :nth-child(2),
+.info :nth-child(3),
+.num :nth-child(3) {
+    padding: 10px;
+    /* padding-right: 20px; */
+}
+
+.skill :nth-child(2),
+.edu :nth-child(2),
+.pro :nth-child(2),
+.body .skill :nth-child(5),
+.edu :nth-child(5),
+.pro :nth-child(5) {
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+#sayhi {
+    position: absolute;
+    top: 20px;
+    left: 700px;
+}
+
+/* .body .skill :nth-child(4),
+.edu :nth-child(4),
+.pro :nth-child(4) {
+    font-weight: 600;
+    display: block;
+} */

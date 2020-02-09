@@ -1,0 +1,69 @@
+/* 三栏
+左右固定，中间自适应 */
+
+/* float布局 */
+/* 
+.left,
+.right,
+.medium {
+    float: left;
+}
+
+.left {
+    width: 300px;
+}
+
+.medium{
+    left: 300px;
+    width: calc(100% - 600px);
+}
+
+.right {
+    right: 0;
+    width: 300px;
+}  */
+
+
+/* position布局 */
+/* .wrapper{
+    position: relative;
+}
+
+.left,
+.right,
+.medium {
+    position: absolute;
+}
+
+.left {
+    width: 300px;
+}
+
+.medium{
+    left: 300px;
+    width: calc(100% - 600px);
+}
+
+.right {
+    right: 0;
+    width: 300px;
+}  */
+
+
+/* flex布局 */
+.wrapper{
+    display: flex;
+}
+
+.left {
+    width: 300px;
+}
+
+.medium{
+    /* left: 300px; */
+    width: calc(100% - 600px);
+}
+
+.right {
+    width: 300px;
+}
