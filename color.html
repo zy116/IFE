@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <!--<style>
+        .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .palette li {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+    </style>-->
+</head>
+<body>
+<!--<ul class="palette">
+    <li style="background-color:crimson"></li>
+    <li style="background-color:bisque"></li>
+    <li style="background-color:blueviolet"></li>
+    <li style="background-color:coral"></li>
+    <li style="background-color:chartreuse"></li>
+    <li style="background-color:darkolivegreen"></li>
+    <li style="background-color:cyan"></li>
+    <li style="background-color:#194738"></li>
+</ul>
+
+<p class="color-picker"></p>-->
+
+<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+<button id="fade-btn">淡出</button>
+
+<script>
+    var myVar;
+    var flag = true;
+    document.getElementById("fade-btn").onclick = function () {
+        myVar = setInterval(fn, 1000);
+        document.getElementById("fade-btn").disabled = true;
+    }
+
+    var opac = document.getElementById("fade-obj").style.opacity + 1;
+
+    function fn() {
+        if (flag) {
+            opac = Number(opac) - 0.1;
+            console.log(opac)
+            if (Math.abs(Number(opac)) <= 0.1) {
+                flag = false;
+                clearInterval(myVar)
+                document.getElementById("fade-btn").disabled = false;
+                document.getElementById("fade-btn").innerHTML = "淡入";
+            }
+        } else {
+            opac = Number(opac) + 0.1;
+            console.log(opac);
+            if (Math.abs(Number(opac)) >= 1) {
+                flag = true;
+                clearInterval(myVar);
+                document.getElementById("fade-btn").disabled = false;
+                document.getElementById("fade-btn").innerHTML = "淡出";
+            }
+        }
+        document.getElementById("fade-obj").style.opacity = opac;
+    }
+
+    /*var liArr = document.querySelectorAll("li");
+    for (var i = 0; i < liArr.length; i++) {
+        liArr[i].onclick = function (e) {
+            var pArr = document.getElementsByTagName("p");
+            pArr[0].style.color = e.target.style.backgroundColor;
+            pArr[0].innerHTML = e.target.style.backgroundColor;
+        }
+    }*/
+</script>
+</body>
+</html>
