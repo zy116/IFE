@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day22-24</title>
+</head>
+<body>
+<input id="stack-input" type="text">
+<p id="stack-cont">栈内容：apple-&gt;pear</p>
+<button id="push-btn">进栈</button>
+<button id="pop-btn">退栈</button>
+<button id="font-btn">打印栈顶元素内容</button>
+<button id="empty-btn">判断栈是否为空</button>
+
+<script>
+    var stack = ["apple", "pear"];
+
+    function write(stack) {
+        document.getElementById("stack-cont").innerHTML = "栈内容：" + stack;
+    }
+
+    function getValue() {
+        var value = document.getElementById("stack-input").value;
+        return value;
+    }
+
+    function add() {
+        var value = getValue();
+        if (value != "")
+            stack.push(value);
+        write(stack.join("-&gt"));
+    }
+
+    function del() {
+        if (stack.length == 0)
+            alert("栈没有元素")
+        else {
+            stack.pop();
+            write(stack.join("-&gt"));
+        }
+    }
+
+    function print() {
+        if (stack.length == 0)
+            alert("栈没有元素")
+        else {
+            console.log(stack[stack.length-1])
+        }
+    }
+
+    function empty() {
+        if (stack.length == 0)
+            console.log(true)
+        else
+            console.log(false)
+    }
+
+    // 入队
+    document.getElementById("push-btn").onclick = add;
+
+    // 出队
+    document.getElementById("pop-btn").onclick = del;
+
+    // 打印队头元素
+    document.getElementById("font-btn").onclick = print;
+
+    // 判断队列是否为空
+    document.getElementById("empty-btn").onclick = empty;
+</script>
+</body>
+</html>
