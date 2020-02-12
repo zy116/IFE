@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day25-27</title>
+</head>
+<body>
+<select id="year-select">
+    <option value="2000">2000</option>
+    <option value="2001">2001</option>
+    <option value="2002">2002</option>
+    ……
+    <option value="2032">2002</option>
+</select>
+
+<select id="month-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    ……
+    <option value="12">12</option>
+</select>
+
+<select id="day-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    ……
+    <option value="31">31</option>
+</select>
+
+<select id="hour-select">
+    <option value="0">00</option>
+    <option value="1">01</option>
+    ……
+    <option value="23">23</option>
+</select>
+
+<select id="minite-select">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    ……
+    <option>59</option>
+</select>
+
+<select id="second-select">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    ……
+    <option>59</option>
+</select>
+
+<p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+
+<script>
+    function clock() {
+        var today = new Date("2008-1-1 8:1:1");
+        var year = today.getFullYear();
+        var month = getZero(today.getMonth() + 1);
+        var day = getZero(today.getDate());
+        var weekday1 = getWeekDay1(today.getDay())
+        var weekday2 = getWeekDay2(today.getDay())
+        var hour = getZero(Number(today.getHours()) % 12);
+        var minute = getZero(today.getMinutes());
+        var second = getZero(today.getSeconds());
+        console.log(year + "年" + month + "月" + day + "日" + weekday2 + hour + ":" + minute + ":" + second)
+        console.log(year + "-" + month + "-" + day + " " + weekday1 + " " + hour + ":" + minute + ":" + second + " " + getAM(today.getHours()))
+    }
+
+    function getWeekDay1(day) {
+        switch (day) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case  6:
+                day = "Saturday";
+        }
+        return day;
+    }
+
+    function getWeekDay2(day) {
+        switch (day) {
+            case 0:
+                day = "星期日";
+                break;
+            case 1:
+                day = "星期一";
+                break;
+            case 2:
+                day = "星期二";
+                break;
+            case 3:
+                day = "星期三";
+                break;
+            case 4:
+                day = "星期四";
+                break;
+            case 5:
+                day = "星期五";
+                break;
+            case  6:
+                day = "星期六";
+        }
+        return day;
+    }
+
+    function getZero(time) {
+        if (Number(time) < 10)
+            time = "0" + time;
+        return time;
+    }
+
+    function getAM(hour) {
+        if (hour < 12)
+            return "AM";
+        else return "PM"
+    }
+
+    function setColck() {
+        // var today = new Date("2008-1-1 8:1:1");
+        var year = today.getFullYear();
+        var month = getZero(today.getMonth() + 1);
+        var day = getZero(today.getDate());
+        var weekday = getWeekDay(today.getDay())
+        var hour = getZero(Number(today.getHours()) % 12);
+        var minute = getZero(today.getMinutes());
+        var second = getZero(today.getSeconds());
+    }
+
+    document.getElementById("year-select").onclick = function () {
+        console.log(document.getElementById("year-select").value);
+    }
+
+    clock();
+</script>
+</body>
+</html>
