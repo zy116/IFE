@@ -9,21 +9,74 @@
     <option value="2000">2000</option>
     <option value="2001">2001</option>
     <option value="2002">2002</option>
-    ……
-    <option value="2032">2002</option>
+    <option value="2003">2003</option>
+    <option value="2004">2004</option>
+    <option value="2005">2005</option>
+    <option value="2006">2006</option>
+    <option value="2007">2007</option>
+    <option value="2008">2008</option>
+    <option value="2009">2009</option>
+    <option value="2010">2010</option>
+    <option value="2011">2011</option>
+    <option value="2012">2012</option>
+    <option value="2013">2013</option>
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+    <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2002</option>
 </select>
 
 <select id="month-select">
     <option value="1">1</option>
     <option value="2">2</option>
-    ……
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
     <option value="12">12</option>
 </select>
 
 <select id="day-select">
     <option value="1">1</option>
     <option value="2">2</option>
-    ……
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
     <option value="31">31</option>
 </select>
 
@@ -34,7 +87,7 @@
     <option value="23">23</option>
 </select>
 
-<select id="minite-select">
+<select id="minute-select">
     <option value="0">0</option>
     <option value="1">1</option>
     ……
@@ -48,11 +101,11 @@
     <option>59</option>
 </select>
 
-<p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+<p id="result-wrapper">现在距离 2001年1月1日星期六 00:00:00 还有 0 天 0小时 0 分 0 秒</p>
 
 <script>
     function clock() {
-        var today = new Date("2008-1-1 8:1:1");
+        var today = new Date();
         var year = today.getFullYear();
         var month = getZero(today.getMonth() + 1);
         var day = getZero(today.getDate());
@@ -64,6 +117,8 @@
         console.log(year + "年" + month + "月" + day + "日" + weekday2 + hour + ":" + minute + ":" + second)
         console.log(year + "-" + month + "-" + day + " " + weekday1 + " " + hour + ":" + minute + ":" + second + " " + getAM(today.getHours()))
     }
+
+    // setInterval(clock,1000)
 
     function getWeekDay1(day) {
         switch (day) {
@@ -130,19 +185,26 @@
     }
 
     function setColck() {
-        // var today = new Date("2008-1-1 8:1:1");
-        var year = today.getFullYear();
-        var month = getZero(today.getMonth() + 1);
-        var day = getZero(today.getDate());
-        var weekday = getWeekDay(today.getDay())
-        var hour = getZero(Number(today.getHours()) % 12);
-        var minute = getZero(today.getMinutes());
-        var second = getZero(today.getSeconds());
+        // var today = new Date();
+        var year = document.getElementById("year-select").value;
+        var month = document.getElementById("month-select").value;
+        var day = document.getElementById("day-select").value;
+        var hour = document.getElementById("hour-select").value;
+        var minute = document.getElementById("minute-select").value;
+        var second = document.getElementById("second-select").value;
+        var string = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+        var theDay = new Date("2000-12-31 8:0:0");
+        var days = new Date(string)
+        var differ = days.getTime()-theDay.getTime();
+        var data = new Date(differ)
+        console.log(data)
+        document.getElementById("result-wrapper").innerHTML =
+            "现在距离 2001年1月1日星期六 00:00:00 还有"+ +"天"+"小时"+"分"+"秒"
+        var da = new Date(days.getTime())
     }
 
-    document.getElementById("year-select").onclick = function () {
-        console.log(document.getElementById("year-select").value);
-    }
+    // setColck();
+    setInterval(setColck,500)
 
     clock();
 </script>
