@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day28-30</title>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        ul {
+            padding-left: 0;
+            margin: 0;
+            width: 166px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug"></ul>
+</div>
+
+<script>
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+
+    function getValue() {
+        var textValue = document.getElementById("email-input").value;
+        return textValue.trim();
+    }
+
+    function setText() {
+        var selectText = "";
+        var textValue = getValue();
+        if (textValue.search("@") < 0)
+            textValue = textValue + "@";
+        else {
+            textValue = textValue.substring(0,textValue.search("@")+1);
+        }
+        for (var i = 0; i < postfixList.length; i++) {
+            selectText = selectText + "<li>" + textValue + postfixList[i] + "</li>";
+        }
+        return selectText;
+    }
+
+    function setWrapper() {
+        document.getElementById("email-sug-wrapper").innerHTML = setText();
+    }
+
+    function inputStatus() {
+        var value = getValue();
+        if (value == "") {
+            hiddenInput();
+        } else {
+            showInput();
+        }
+    }
+
+    function hiddenInput() {
+        document.getElementById("email-sug-wrapper").style.visibility = "hidden"
+    }
+
+    function showInput() {
+        document.getElementById("email-sug-wrapper").style.visibility = "visible"
+    }
+
+    document.getElementById("email-input").onkeyup = function () {
+        inputStatus();
+        setWrapper();
+    }
+</script>
+</body>
+</html>
