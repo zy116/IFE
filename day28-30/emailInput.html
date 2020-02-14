@@ -6,13 +6,17 @@
     <style>
         li {
             list-style: none;
+            background-color: pink;
         }
 
         ul {
             padding-left: 0;
             margin: 0;
             width: 166px;
-            background-color: pink;
+        }
+
+        li:hover {
+            background-color: limegreen;
         }
     </style>
 </head>
@@ -33,15 +37,25 @@
     function setText() {
         var selectText = "";
         var textValue = getValue();
+        var substr = "";
+        var beforeText = "";
         if (textValue.search("@") < 0)
             textValue = textValue + "@";
         else {
-            textValue = textValue.substring(0,textValue.search("@")+1);
+            var substr = textValue.substring(textValue.search("@") + 1);
+            textValue = textValue.substring(0, textValue.search("@") + 1);
         }
         for (var i = 0; i < postfixList.length; i++) {
             selectText = selectText + "<li>" + textValue + postfixList[i] + "</li>";
+            // console.log(postfixList[i].substring(0, substr.length))
+            if (substr == postfixList[i].substring(0, substr.length) && substr != "") {
+                beforeText = beforeText + "<li>" + textValue + postfixList[i] + "</li>";
+            }
         }
-        return selectText;
+        if (beforeText == "")
+            return selectText;
+        else
+            return beforeText;
     }
 
     function setWrapper() {
@@ -65,7 +79,26 @@
         document.getElementById("email-sug-wrapper").style.visibility = "visible"
     }
 
-    document.getElementById("email-input").onkeyup = function () {
+    // function selectClick() {
+    //     var tagLi = document.getElementsByTagName("li");
+    //     console.log(tagLi)
+    //     for (var i = 0; i < tagLi.length; i++) {
+    //         var li = tagLi[i];
+    //         tagLi[i].onclick = function () {
+    //             document.getElementById("email-input").value = li.innerText;
+    //         }
+    //     }
+    //
+    // }
+
+    document.getElementById("email-sug-wrapper").addEventListener('click', function (e) {
+        if (e.target && e.target.nodeName.toUpperCase() == "LI") {/*判断目标事件是否为li*/
+            document.getElementById("email-input").value = e.target.innerText;
+            hiddenInput();
+        }
+    }, false)
+
+    document.getElementById("email-input").oninput = function () {
         inputStatus();
         setWrapper();
     }
