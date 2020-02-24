@@ -11,11 +11,14 @@
     <option>华东</option>
 </select>
 
-<input type="radio">
+<input type="radio">2
+<input type="text" id="name">
 
-<div id="table-wrapper">
+<div id="region-wrapper">
 </div>
 
+
+<script src = "../jquery-3.4.1.js"></script>
 <script>
     let sourceData = [{
         product: "手机",
@@ -55,7 +58,15 @@
         sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
     }]
 
+
+    var region = $("#name");
+    console.log(region.val())
+    console.log(region.length);
     console.log(sourceData[0].region)
+    $(function () {
+        $('#testForm').on('submit', function () {
+        alert('submit!');})
+    });
 </script>
 </body>
 </html>
